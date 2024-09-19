@@ -490,7 +490,7 @@ func (p *phaseReconciler) upgrade(ctx context.Context) (reconcile.Result, error)
 
 	log.Info("Version changes detected, updating existing components")
 
-	if err := p.newClusterClient().ProviderUpgrader().ApplyCustomPlan(ctx, cluster.UpgradeOptions{}, cluster.UpgradeItem{
+	if err := p.newClusterClient().ProviderUpgrader().ApplyCustomPlan(ctx, cluster.UpgradeOptions{SkipLaggingProvidersCheck: true}, cluster.UpgradeItem{
 		NextVersion: p.provider.GetSpec().Version,
 		Provider:    getProvider(p.provider, p.options.Version),
 	}); err != nil {

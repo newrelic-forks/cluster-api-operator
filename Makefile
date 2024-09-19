@@ -34,7 +34,7 @@ endif
 export GOPROXY
 
 # Active module mode, as we use go modules to manage dependencies
-export GO111MODULE=on
+export GO111MODULE=auto
 
 # This option is for running docker manifest command
 export DOCKER_CLI_EXPERIMENTAL := enabled
